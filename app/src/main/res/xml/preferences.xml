@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        android:key="@string/pref_videosettings_key"
+        android:title="@string/pref_videosettings_title">
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="@string/pref_audiosettings_key"
+        android:title="@string/pref_audiosettings_title">
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="@string/pref_datasettings_key"
+        android:title="@string/pref_datasettings_title">
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="@string/pref_miscsettings_key"
+        android:title="@string/pref_miscsettings_title">
+        
+    </PreferenceCategory>
+
+</PreferenceScreen>

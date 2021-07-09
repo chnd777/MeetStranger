@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="main_background">#C8FF64</color>
+    <color name="main_foregorund">#F07139</color>
+
+    <color name="colorPrimary">@color/main_foregorund</color>
+    <color name="colorPrimaryDark">@color/main_foregorund</color>
+    <color name="colorAccent">#000000</color>
+
+    <color name="themes_color">#F47C3B</color>
+    <color name="background_color">#FABDAE</color>
+    <color name="backgroundstart">#FABDAE</color>
+    <color name="backgroundend">#EDD8D2</color>
+    <color name="text_color">#FFFFFF</color>
+    <color name="button_color">#F47C3B</color>
+    <color name="buttonstart">#F47C3B</color>
+    <color name="buttonend">#FBA77A</color>
+
+    <color name="grammar_used_it">#47FF10</color>
+    <color name="grammar_will_use">#D000FF</color>
+    <color name="grammar_not_used">#ffffff</color>
+
+</resources>

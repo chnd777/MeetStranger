@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="speaking_tips">
+        <item>Always think in English</item>
+        <item>Do not be afraid of making mistakes</item>
+        <item>Practice speaking English whenever you connect with stranger</item>
+        <item>Try saying something extra</item>
+        <item>Use simple sentences at first, then progress to more complex sentences</item>
+        <item>Listen and answer, not listen and repeat</item>
+        <item>Learn from your mistakes</item>
+        <item>Loudely Speak tongue twisters</item>
+        <item>Always Be confidence whenever you speak</item>
+        <item>Discuss on the topic in which you are familier</item>
+        <item>Listen to the English Music</item>
+        <item>Watch the English Movies</item>
+        <item>Try to learn from everywhere</item>
+        <item>Always study and review phrases, Not individual words</item>
+    </string-array>
+
+    <string-array name="tongue_twisters">
+        <item>The thirty-three thieves thought that they thrilled the throne throughout Thursday.</item>
+        <item>Send toast to ten tense stout saints\' ten tall tents.</item>
+        <item>Can you can a can as a canner can can a can?</item>
+        <item>I wish to wish the wish you wish to wish, but if you wish the wish the witch wishes, I won\'t wish the wish you wish to wish.</item>
+        <item>Picky people pick Peter Pan Peanut-Butter, \'tis the peanut-butter picky people pick.</item>
+        <item>There those thousand thinkers were thinking how did the other three thieves go through.</item>
+        <item>If Pickford\'s packers packed a packet of crisps would the packet of crisps that Pickford\'s packers packed survive for two and a half years?</item>
+        <item>How many cookies could a good cook cook If a good cook could cook cookies? A good cook could cook as much cookies as a good cook who could cook cookies.</item>
+        <item>How much ground would a groundhog hog, if a groundhog could hog ground? A groundhog would hog all the ground he could hog, if a groundhog could hog ground.</item>
+        <item>Mr. Tongue Twister tried to train his tongue to twist and turn, and twit an twat, to learn the letter \"T\".</item>
+        <item>Pete\'s pa pete poked to the pea patch to pick a peck of peas for the poor pink pig in the pine hole pig-pen.</item>
+        <item>Thirty-three thirsty, thundering thoroughbreds thumped Mr. Thurber on Thursday.</item>
+        <item>Fuzzy Wuzzy was a bear. Fuzzy Wuzzy had no hair. Fuzzy Wuzzy wasn\'t fuzzy, was he?</item>
+        <item>The great Greek grape growers grow great Greek grapes.</item>
+        <item>How much caramel can a canny canonball cram in a camel if a canny canonball can cram caramel in a camel?</item>
+        <item>How many sheets could a sheet slitter slit if a sheet slitter could slit sheets?</item>
+        <item>If you\'re keen on stunning kites and cunning stunts, buy a cunning stunning stunt kite.</item>
+        <item>Excited executioner exercising his excising powers excessively.</item>
+        <item>If you can\'t can any candy can, how many candy cans can a candy canner can if he can can candy cans ?</item>
+        <item>Suzie Seaword\'s fish-sauce shop sells unsifted thistles for thistle-sifters to sift.</item>
+    </string-array>
+
+    <string-array name="videoResolutions">
+        <item>Default</item>
+        <item>4K (3840 x 2160)</item>
+        <item>Full HD (1920 x 1080)</item>
+        <item>HD (1280 x 720)</item>
+        <item>VGA (640 x 480)</item>
+        <item>QVGA (320 x 240)</item>
+    </string-array>
+
+    <string-array name="videoResolutionsValues">
+        <item>Default</item>
+        <item>3840 x 2160</item>
+        <item>1920 x 1080</item>
+        <item>1280 x 720</item>
+        <item>640 x 480</item>
+        <item>320 x 240</item>
+    </string-array>
+
+    <string-array name="cameraFps">
+        <item>Default</item>
+        <item>30 fps</item>
+        <item>15 fps</item>
+    </string-array>
+
+    <string-array name="startBitrate">
+        <item>Default</item>
+        <item>Manual</item>
+    </string-array>
+
+    <string-array name="videoCodecs">
+        <item>VP8</item>
+        <item>VP9</item>
+        <item>H264 Baseline</item>
+        <item>H264 High</item>
+    </string-array>
+
+    <string-array name="audioCodecs">
+        <item>OPUS</item>
+        <item>ISAC</item>
+    </string-array>
+
+    <string-array name="speakerphone">
+        <item>Auto (proximity sensor)</item>
+        <item>Enabled</item>
+        <item>Disabled</item>
+    </string-array>
+
+    <string-array name="speakerphoneValues">
+        <item>auto</item>
+        <item>true</item>
+        <item>false</item>
+    </string-array>
+
+    <string-array name="roomListContextMenu">
+        <item>Remove favorite</item>
+    </string-array>
+
+</resources>

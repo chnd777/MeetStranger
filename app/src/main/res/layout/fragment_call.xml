@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_background">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/circle_image_view"
+        android:src="@mipmap/default_user"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/call_activity_cooneting"/>
+
+    <TextView
+        android:id="@+id/user_name"
+        android:text=""
+        android:textStyle="bold"
+        android:textColor="@color/main_foregorund"
+        android:textSize="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/circle_image_view"
+        app:layout_constraintBottom_toTopOf="@+id/call_activity_cooneting"/>
+
+    <TextView
+        android:id="@+id/call_activity_cooneting"
+        android:layout_margin="10dp"
+        android:text="Connecting..."
+        android:textColor="@color/main_foregorund"
+        android:textSize="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/user_name"
+        app:layout_constraintBottom_toTopOf="@+id/searching_call_progress_bar"/>
+
+    <ProgressBar
+        android:id="@+id/searching_call_progress_bar"
+        android:layout_margin="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/call_activity_cooneting"
+        app:layout_constraintBottom_toBottomOf="@id/contact_name_call"/>
+
+    <TextView
+        android:visibility="gone"
+        android:id="@+id/contact_name_call"
+        android:layout_margin="10dp"
+        android:text="0:0:0"
+        android:textColor="@color/main_foregorund"
+        android:textSize="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/searching_call_progress_bar"
+        app:layout_constraintBottom_toTopOf="@+id/buttons_call_container"/>
+
+    <LinearLayout
+        android:id="@+id/buttons_call_container"
+        android:layout_margin="45dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/contact_name_call"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <ImageButton
+            android:id="@+id/button_call_toggle_mic"
+            android:background="@android:drawable/ic_btn_speak_now"
+            android:contentDescription="@string/toggle_mic"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="33"
+            android:layout_width="50dp"
+            android:layout_height="50dp"/>
+
+        <ImageButton
+            android:id="@+id/button_call_toggle_speaker"
+            android:background="@mipmap/ic_speaker"
+            android:contentDescription="@string/toggle_speaker"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="33"
+            android:layout_width="50dp"
+            android:layout_height="50dp"/>
+
+        <ImageButton
+            android:id="@+id/button_call_disconnect"
+            android:background="@drawable/ic_end_call"
+            android:contentDescription="@string/disconnect_call"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="20dp"
+            android:layout_weight="33"
+            android:layout_width="25dp"
+            android:layout_height="50dp"/>
+
+    </LinearLayout>
+
+    <SeekBar
+        android:id="@+id/capture_format_slider_call"
+        android:progress="50"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttons_call_container"
+        app:layout_constraintBottom_toTopOf="@+id/capture_format_text_call"/>
+
+    <TextView
+        android:id="@+id/capture_format_text_call"
+        android:text="@string/capture_format_change_text"
+        android:textColor="@color/main_foregorund"
+        android:textSize="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/capture_format_slider_call"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

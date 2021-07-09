@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "275418213893",
+    "project_id": "meet-stranger-75fd6",
+    "storage_bucket": "meet-stranger-75fd6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:275418213893:android:042d708172d01161bc366c",
+        "android_client_info": {
+          "package_name": "com.example.MeetStranger"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "275418213893-ht1r82di0jdn4mv2gdntu00mheh7jmf9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC4RkBoGi5DH-Uqen4N1YZSglb5YTsv6yw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "275418213893-ht1r82di0jdn4mv2gdntu00mheh7jmf9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

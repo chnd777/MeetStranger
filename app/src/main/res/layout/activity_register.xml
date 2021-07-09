@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:id="@+id/linear_layout_main"
+        android:visibility="invisible"
+        android:orientation="vertical"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_registration"
+            android:text="Registration"
+            android:textSize="30dp"
+            android:textColor="@color/main_foregorund"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"/>
+
+        <TextView
+            android:text="Enter your name"
+            android:textSize="20dp"
+            android:textColor="#000000"
+            android:paddingLeft="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="3dp"/>
+
+        <EditText
+            android:id="@+id/edit_text_username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edittext_background"
+            android:digits=" ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+            android:hint="Enter your name"
+            android:padding="10dp"
+            android:maxLength="15"
+            android:maxLines="1"
+            android:layout_marginBottom="5dp"
+            android:imeOptions="actionDone|actionNext"/>
+
+        <TextView
+            android:text="Enter your age"
+            android:textSize="20dp"
+            android:textColor="#000000"
+            android:paddingLeft="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="3dp"/>
+
+        <EditText
+            android:id="@+id/edit_text_userage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edittext_background"
+            android:digits="0123456789"
+            android:hint="Enter your age"
+            android:inputType="number"
+            android:padding="10dp"
+            android:maxLength="2"
+            android:maxLines="1"
+            android:layout_marginBottom="5dp"/>
+
+        <LinearLayout
+            android:id="@+id/linear_layout_phone"
+            android:orientation="horizontal"
+            android:weightSum="3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp">
+
+            <com.hbb20.CountryCodePicker
+                android:id="@+id/ccp"
+                android:layout_weight="1"
+                android:gravity="center"
+                app:ccp_textSize="16sp"
+                app:ccp_autoDetectCountry="true"
+                app:ccp_showNameCode="true"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"/>
+
+            <EditText
+                android:id="@+id/edit_text_usernumber"
+                android:layout_weight="2"
+                android:hint="Enter Phone Number"
+                android:inputType="phone"
+                android:maxLines="1"
+                android:maxLength="15"
+                android:digits="0123456789"
+                android:textSize="16sp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_choose_gender"
+            android:text="Choose your gender"
+            android:textSize="20dp"
+            android:textColor="#000000"
+            android:paddingLeft="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <RadioGroup
+            android:id="@+id/radio_group"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/radiobutton_male"
+                android:text="Male"
+                android:textSize="20dp"
+                android:textColor="@color/main_foregorund"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="checkButton" />
+
+            <RadioButton
+                android:id="@+id/radiobutton_female"
+                android:text="Female"
+                android:textSize="20dp"
+                android:textColor="@color/main_foregorund"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="checkButton" />
+
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/button_register"
+            android:text="Register"
+            android:textAllCaps="false"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:textColor="@color/main_foregorund"
+            android:background="@drawable/button"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linear_layout_wait"
+        android:visibility="visible"
+        android:orientation="vertical"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:padding="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"/>
+
+        <TextView
+            android:id="@+id/text_view_wait"
+            android:text="Please Wait..."
+            android:textStyle="bold"
+            android:textColor="@color/main_foregorund"
+            android:textSize="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+</RelativeLayout>

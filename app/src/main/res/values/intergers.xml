@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <integer name="maxadscount">3</integer>
+    <integer name="speaking_tips_count">14</integer>
+    <integer name="tongue_twisters_count">20</integer>
+
+</resources>
