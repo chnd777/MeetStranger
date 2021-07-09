@@ -48,17 +48,10 @@ public class MainActivity extends AppCompatActivity {
     private String deviceId = "";
     DatabaseReference reference;
 
-    // Facebook Ads
-    private InterstitialAd interstitialAd;
-    private InterstitialAdListener interstitialAdListener;
-    private int adscount = 0;
-    private int maxadscount = 0;
+
 
     @Override
     protected void onDestroy() {
-        if (interstitialAd != null) {
-            interstitialAd.destroy();
-        }
         super.onDestroy();
     }
     //
@@ -70,44 +63,7 @@ public class MainActivity extends AppCompatActivity {
 
         userGender = PersistentUser.getUserGender(this.getApplicationContext());
 
-        // facebook ads
-        adscount = PersistentUser.getAdsCount(this.getApplicationContext());
-        maxadscount = getResources().getInteger(R.integer.maxadscount);
 
-        AudienceNetworkAds.initialize(this);
-        interstitialAd = new InterstitialAd(this,getResources().getString(R.string.fb_interstitial_ad2));
-        interstitialAdListener = new InterstitialAdListener() {
-            @Override
-            public void onInterstitialDisplayed(Ad ad) {
-            }
-
-            @Override
-            public void onInterstitialDismissed(Ad ad) {
-                loadAds();
-                Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
-                startActivity(intent);
-            }
-
-            @Override
-            public void onError(Ad ad, AdError adError) {
-            }
-
-            @Override
-            public void onAdLoaded(Ad ad) {
-            }
-
-            @Override
-            public void onAdClicked(Ad ad) {
-                adscount++;
-                PersistentUser.setAdsCount(com.example.Meetstranger.GlobalChat.MainActivity.this,adscount);
-            }
-
-            @Override
-            public void onLoggingImpression(Ad ad) {
-            }
-        };
-        loadAds();
-        //
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -153,23 +109,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void loadAds(){
-        if(adscount<=maxadscount){
-            interstitialAd.loadAd(
-                    interstitialAd.buildLoadAdConfig()
-                            .withAdListener(interstitialAdListener)
-                            .build());
-        }
-    }
-
     private void openOtherActivity(){
-        if(interstitialAd==null || interstitialAd.isAdInvalidated() || !interstitialAd.isAdLoaded()){
-            loadAds();
-            Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
-            startActivity(intent);
-        }else{
-            interstitialAd.show();
-        }
+        Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
+        startActivity(intent);
+
     }
 
     private void initializeViews() {

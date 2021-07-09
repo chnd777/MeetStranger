@@ -19,12 +19,7 @@ import android.widget.GridView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import com.facebook.ads.Ad;
-import com.facebook.ads.AdError;
-import com.facebook.ads.AdListener;
-import com.facebook.ads.AdSize;
-import com.facebook.ads.AdView;
-import com.facebook.ads.AudienceNetworkAds;
+
 import com.example.Meetstranger.grammar.VocabularyActivity;
 import com.example.Meetstranger.util.PersistentUser;
 
@@ -59,16 +54,9 @@ public class MoreActivity extends AppCompatActivity {
     private int tongue_twisters_max = 0;
     private String[] tt;
 
-    private int adscount = 0;
-    private int maxadscount = 0;
-    private AdView adView;
-    private AdListener adListener;
-
     @Override
     protected void onDestroy() {
-        if (adView != null) {
-            adView.destroy();
-        }
+
         super.onDestroy();
     }
 
@@ -84,36 +72,7 @@ public class MoreActivity extends AppCompatActivity {
         tongue_twisters_max = getResources().getInteger(R.integer.tongue_twisters_count);
         tt = getResources().getStringArray(R.array.tongue_twisters);
 
-        adscount = PersistentUser.getAdsCount(this.getApplicationContext());
-        maxadscount = getResources().getInteger(R.integer.maxadscount);
 
-        AudienceNetworkAds.initialize(getApplicationContext());
-        adView = new AdView(getApplicationContext(), getResources().getString(R.string.fb_banner_ad1), AdSize.BANNER_HEIGHT_50);
-        LinearLayout adContainer = (LinearLayout) findViewById(R.id.banner_container);
-        adContainer.addView(adView);
-
-        adListener = new AdListener() {
-            @Override
-            public void onError(Ad ad, AdError adError) {
-            }
-
-            @Override
-            public void onAdLoaded(Ad ad) {
-            }
-
-            @Override
-            public void onAdClicked(Ad ad) {
-                adscount++;
-                PersistentUser.setAdsCount(MoreActivity.this,adscount);
-            }
-
-            @Override
-            public void onLoggingImpression(Ad ad) {
-            }
-        };
-        if(adscount<=maxadscount){
-            adView.loadAd(adView.buildLoadAdConfig().withAdListener(adListener).build());
-        }
 
         gridView = findViewById(R.id.grid_view);
         MoreAdapter adapter = new MoreAdapter(name,icons,getApplicationContext());
@@ -169,9 +128,7 @@ public class MoreActivity extends AppCompatActivity {
                 return true;
             }
         });
-
     }
-
     private void speakingTips(){
         speaking_tips++;
         PersistentUser.setSpeakingTipsCount(MoreActivity.this,speaking_tips);
@@ -252,11 +209,14 @@ public class MoreActivity extends AppCompatActivity {
             }
             return true;
         }else if(id==R.id.action_invite){
-            Intent sendIntent = new Intent();
-            sendIntent.setAction(Intent.ACTION_SEND);
-            sendIntent.putExtra(Intent.EXTRA_TEXT, getResources().getString(R.string.share));
-            sendIntent.setType("text/plain");
-            startActivity(sendIntent);
+            Intent intentInvite = new Intent(Intent.ACTION_SEND);
+            intentInvite.setType("text/plain");
+            String body = "https://github.com/chnd777/moneyManager/blob/master/Money-manager.apk?raw=true";
+            String subject = "Your Subject";
+            intentInvite.putExtra(Intent.EXTRA_SUBJECT, subject);
+            intentInvite.putExtra(Intent.EXTRA_TEXT, body);
+            startActivity(Intent.createChooser(intentInvite, "Share using"));
+
             return true;
         }else if(id==R.id.action_privacy){
             Uri uri = Uri.parse(getResources().getString(R.string.privacy_policy));
@@ -264,15 +224,13 @@ public class MoreActivity extends AppCompatActivity {
             startActivity(intent);
             return true;
         }else if(id==R.id.action_contact){
-            String[] TO_EMAILS = {"randomtalkbymoganstar@gmail.com"};
-            //String[] CC = {};
-            //String[] BCC = {};
+            String[] TO_EMAILS = {"chndmalla@gmail.com"};
             Intent intent = new Intent(Intent.ACTION_SENDTO);
             intent.setData(Uri.parse("mailto:"));
             intent.putExtra(Intent.EXTRA_EMAIL,TO_EMAILS);
             //intent.putExtra(Intent.EXTRA_CC,CC);
             //intent.putExtra(Intent.EXTRA_BCC,BCC);
-            intent.putExtra(Intent.EXTRA_SUBJECT,"Random Talk App");
+            intent.putExtra(Intent.EXTRA_SUBJECT,"App Meet Strangers");
             intent.putExtra(Intent.EXTRA_TEXT,"Enter what you want to share with us here");
             startActivity(intent);
             return true;
@@ -289,5 +247,5 @@ public class MoreActivity extends AppCompatActivity {
         }
         return false;
     }
-    //
+
 }

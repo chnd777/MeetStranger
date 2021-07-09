@@ -165,7 +165,7 @@ public class RegisterActivity extends AppCompatActivity {
         DatabaseReference current_user_db = FirebaseDatabase.getInstance().getReference().child("UserCallDatabase").child("Users").child(userId);
         current_user_db.child("status").setValue("offline");
         current_user_db.child("history").child("-").setValue("true");
-        Intent in = new Intent(RegisterActivity.this,MainActivityMale.class);
+        Intent in = new Intent(RegisterActivity.this,MoreActivity.class);
         startActivity(in);
         finish();
 
@@ -176,7 +176,7 @@ public class RegisterActivity extends AppCompatActivity {
         DatabaseReference current_user_db = FirebaseDatabase.getInstance().getReference().child("UserCallDatabase").child("Users").child(userId);
         current_user_db.child("status").setValue("offline");
         current_user_db.child("history").child("-").setValue("true");
-        Intent in = new Intent(RegisterActivity.this,MainActivityFemale.class);
+        Intent in = new Intent(RegisterActivity.this,MoreActivity.class);
         startActivity(in);
         finish();
 
