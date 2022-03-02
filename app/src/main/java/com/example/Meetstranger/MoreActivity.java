@@ -33,8 +33,6 @@ public class MoreActivity extends AppCompatActivity {
             R.drawable.more3,
             R.drawable.more4,
             R.drawable.more5,
-            R.drawable.more6,
-            R.drawable.more7,
     };
 
     String name[] = {
@@ -43,8 +41,6 @@ public class MoreActivity extends AppCompatActivity {
             "Speaking Tips",
             "Tongue Twisters",
             "Vocabulary & Grammar",
-            "Social Media Groups",
-            "Advanced Features",
     };
 
     private int speaking_tips = 0;
@@ -109,14 +105,7 @@ public class MoreActivity extends AppCompatActivity {
                 }else if(pos==7){
                     Toast.makeText(getApplicationContext(),"More Features will be added soon.\n" +
                             "Suggest us to add new feature you want by writing a mail to randomtalkbymoganstar@gmail.com",Toast.LENGTH_SHORT).show();
-                    /*
-                    if(!isInternetAvailable()){
-                        Toast.makeText(getApplicationContext(),getResources().getString(R.string.internet_connection),Toast.LENGTH_SHORT).show();
-                    }else{
-                        //Intent intent = new Intent(MoreActivity.this, AdvancedFeatures.class);
-                        //startActivity(intent);
-                    }
-                    */
+
                 }
             }
         });
@@ -189,26 +178,7 @@ public class MoreActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
-        if(id==R.id.action_instagram){
-            Uri uri = Uri.parse(getResources().getString(R.string.instagram));
-            Intent intent = new Intent(Intent.ACTION_VIEW,uri);
-            startActivity(intent);
-        }else if(id==R.id.action_rate){
-            Uri uri = Uri.parse("market://details?id=" + MoreActivity.this.getPackageName());
-            Intent goToMarket = new Intent(Intent.ACTION_VIEW, uri);
-            // To count with Play market backstack, After pressing back button,
-            // to taken back to our application, we need to add following flags to intent.
-            goToMarket.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY |
-                    Intent.FLAG_ACTIVITY_NEW_DOCUMENT |
-                    Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
-            try {
-                startActivity(goToMarket);
-            } catch (ActivityNotFoundException e) {
-                startActivity(new Intent(Intent.ACTION_VIEW,
-                        Uri.parse("https://play.google.com/store/apps/details?id=" + MoreActivity.this.getPackageName())));
-            }
-            return true;
-        }else if(id==R.id.action_invite){
+        if(id==R.id.action_invite){
             Intent intentInvite = new Intent(Intent.ACTION_SEND);
             intentInvite.setType("text/plain");
             String body = "https://github.com/chnd777/moneyManager/blob/master/Money-manager.apk?raw=true";
@@ -216,20 +186,12 @@ public class MoreActivity extends AppCompatActivity {
             intentInvite.putExtra(Intent.EXTRA_SUBJECT, subject);
             intentInvite.putExtra(Intent.EXTRA_TEXT, body);
             startActivity(Intent.createChooser(intentInvite, "Share using"));
-
-            return true;
-        }else if(id==R.id.action_privacy){
-            Uri uri = Uri.parse(getResources().getString(R.string.privacy_policy));
-            Intent intent = new Intent(Intent.ACTION_VIEW,uri);
-            startActivity(intent);
             return true;
         }else if(id==R.id.action_contact){
             String[] TO_EMAILS = {"chndmalla@gmail.com"};
             Intent intent = new Intent(Intent.ACTION_SENDTO);
             intent.setData(Uri.parse("mailto:"));
             intent.putExtra(Intent.EXTRA_EMAIL,TO_EMAILS);
-            //intent.putExtra(Intent.EXTRA_CC,CC);
-            //intent.putExtra(Intent.EXTRA_BCC,BCC);
             intent.putExtra(Intent.EXTRA_SUBJECT,"App Meet Strangers");
             intent.putExtra(Intent.EXTRA_TEXT,"Enter what you want to share with us here");
             startActivity(intent);
@@ -241,8 +203,8 @@ public class MoreActivity extends AppCompatActivity {
     // internet connection checking
     public boolean isInternetAvailable(){
         ConnectivityManager cm = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
-        NetworkInfo netinfo = cm.getActiveNetworkInfo();
-        if(netinfo!=null && netinfo.isConnectedOrConnecting()){
+        NetworkInfo netInfo = cm.getActiveNetworkInfo();
+        if(netInfo!=null && netInfo.isConnectedOrConnecting()){
             return true;
         }
         return false;

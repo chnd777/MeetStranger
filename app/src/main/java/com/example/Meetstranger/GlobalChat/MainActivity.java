@@ -177,22 +177,6 @@ public class MainActivity extends AppCompatActivity {
         status("offline");
     }
 
-    // todo mainly
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        if(userGender.equals("male")){
-            menu.add(0,0,0,"Only Female Users");
-        }
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if(item.getTitle().equals("Only Female Users")){
-            Intent intent = new Intent(MainActivity.this,FemaleUsers.class);
-            startActivity(intent);
-        }
-        return false;
-    }
+    // todo mainl
     //
 }

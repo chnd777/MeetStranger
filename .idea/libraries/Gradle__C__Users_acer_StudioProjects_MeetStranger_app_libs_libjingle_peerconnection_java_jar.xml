@@ -1,5 +1,5 @@
 <component name="libraryTable">
-  <library name="Gradle: ./app/libs/libjingle_peerconnection_java.jar">
+  <library name="Gradle: C./Users/acer/StudioProjects/MeetStranger/app/libs/libjingle_peerconnection_java.jar">
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/app/libs/libjingle_peerconnection_java.jar!/" />
     </CLASSES>

@@ -43,56 +43,11 @@ public class ChatsFragment extends Fragment {
 
     private List<String> usersList;
 
-    // facebook ads
-    private AdView adView;
-    private AdListener adListener;
-    private int adscount = 0;
-    private int maxadscount = 0;
-
-    @Override
-    public void onDestroy() {
-        if (adView != null) {
-            adView.destroy();
-        }
-        super.onDestroy();
-    }
-    //
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.gc_fragment_chats,container,false);
-
-        // facebook ads
-        adscount = PersistentUser.getAdsCount(getActivity());
-        maxadscount = getResources().getInteger(R.integer.maxadscount);
-
-        adView = new AdView(getActivity(), getResources().getString(R.string.fb_banner_ad3), AdSize.BANNER_HEIGHT_50);
-        LinearLayout adContainer = (LinearLayout) view.findViewById(R.id.banner_container);
-        adContainer.addView(adView);
-        adListener = new AdListener() {
-            @Override
-            public void onError(Ad ad, AdError adError) {
-            }
-
-            @Override
-            public void onAdLoaded(Ad ad) {
-            }
-
-            @Override
-            public void onAdClicked(Ad ad) {
-                adscount++;
-                PersistentUser.setAdsCount(getActivity(),adscount);
-            }
-
-            @Override
-            public void onLoggingImpression(Ad ad) {
-            }
-        };
-        if(adscount<=maxadscount){
-            adView.loadAd(adView.buildLoadAdConfig().withAdListener(adListener).build());
-        }
-        //
 
         deviceId = PersistentUser.getDeviceId(this.getActivity());
 
@@ -147,22 +102,6 @@ public class ChatsFragment extends Fragment {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()){
                     User user = snapshot.getValue(User.class);
 
-                    /* Display 1 user from chats
-                    for(String id : usersList){
-                        if(user.getId().equals(id)){
-                            if(mUsers.size()!=0){
-                                for (User user1 : mUsers){
-                                    if(!user.getId().equals(user1.getId())){
-                                        mUsers.add(user);
-                                    }
-                                }
-                            }else {
-                                mUsers.add(user);
-                            }
-                        }
-                    }
-                    */
-
                     // this is our own imple
                     for(String id : usersList){
                         if(user.getId().equals(id)){
@@ -188,7 +127,6 @@ public class ChatsFragment extends Fragment {
                 recyclerView.setAdapter(userAdapter);
 
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 

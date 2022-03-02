@@ -1,10 +1,9 @@
 package com.example.Meetstranger;
 
-import android.app.AlarmManager;
 import android.app.AlertDialog;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
-import android.app.PendingIntent;
+
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.ConnectivityManager;
@@ -36,9 +35,6 @@ import java.util.Objects;
 public class SplashActivity extends AppCompatActivity {
 
     private String deviceId = "null";
-
-    long SPLASH_TIME = 3000;
-    String TAG = "Login";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,20 +103,6 @@ public class SplashActivity extends AppCompatActivity {
             }
         }
         //
-
-        // to create reminder for users to use this app
-        createNotificationChannel();
-        Intent intent = new Intent(SplashActivity.this,ReminderBroadcast.class);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(SplashActivity.this,0,intent,0);
-        AlarmManager alarmManager = (AlarmManager)getSystemService(ALARM_SERVICE);
-        long timeAtOpeningThisActivity = System.currentTimeMillis();
-        long extraTime = 1000*3600; // 1 hours = 3600 seconds
-        alarmManager.set(AlarmManager.RTC_WAKEUP,
-                timeAtOpeningThisActivity+extraTime,
-                pendingIntent);
-        //
-
-        //
         if(PersistentUser.getDeviceId(this.getApplicationContext()).equals("null")){
             PersistentUser.setDeviceId(this.getApplicationContext(), deviceId);
         }
@@ -170,7 +152,7 @@ public class SplashActivity extends AppCompatActivity {
         Thread timer = new Thread(){
             public void run(){
                 try{
-                    sleep(SPLASH_TIME);
+                    sleep(3000);
                     if(isInternetAvailable()){
                         Intent i = new Intent(SplashActivity.this, RegisterActivity.class);
                         startActivity(i);
@@ -185,53 +167,47 @@ public class SplashActivity extends AppCompatActivity {
         };
         timer.start();
     }
-
     //
     private void checkIfRegisteredBefore(){
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("UserDetails");
         reference.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull @NotNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                if(Objects.equals(snapshot.getKey(), deviceId)){
-                    PersistentUser.setRegisterBefore(SplashActivity.this,true);
-                    for(DataSnapshot s : snapshot.getChildren()){
+                if (Objects.equals(snapshot.getKey(), deviceId)) {
+                    PersistentUser.setRegisterBefore(SplashActivity.this, true);
+                    for (DataSnapshot s : snapshot.getChildren()) {
                         String key = s.getKey();
                         String value = s.getValue(String.class);
-                        if(key.equals("user_age")){
-                            PersistentUser.setUserAge(SplashActivity.this,value);
-                        }else if(key.equals("user_gender")){
-                            PersistentUser.setUserGender(SplashActivity.this,value);
-                        }else if(key.equals("user_name")){
-                            PersistentUser.setUserName(SplashActivity.this,value);
-                        }else if(key.equals("user_number")){
-                            PersistentUser.setUserNumber(SplashActivity.this,value);
-                        }else if(key.equals("user_country_default")){
-                            PersistentUser.setUserCountryDefault(SplashActivity.this,value);
-                        }else if(key.equals("user_country_selected")){
-                            PersistentUser.setUserCountrySelected(SplashActivity.this,value);
+                        if (key.equals("user_age")) {
+                            PersistentUser.setUserAge(SplashActivity.this, value);
+                        } else if (key.equals("user_gender")) {
+                            PersistentUser.setUserGender(SplashActivity.this, value);
+                        } else if (key.equals("user_name")) {
+                            PersistentUser.setUserName(SplashActivity.this, value);
+                        } else if (key.equals("user_number")) {
+                            PersistentUser.setUserNumber(SplashActivity.this, value);
+                        } else if (key.equals("user_country_default")) {
+                            PersistentUser.setUserCountryDefault(SplashActivity.this, value);
+                        } else if (key.equals("user_country_selected")) {
+                            PersistentUser.setUserCountrySelected(SplashActivity.this, value);
                         }
                     }
                 }
             }
-
             @Override
             public void onChildChanged(@NonNull @NotNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
             }
 
             @Override
             public void onChildRemoved(@NonNull @NotNull DataSnapshot snapshot) {
-
             }
 
             @Override
             public void onChildMoved(@NonNull @NotNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
             }
 
             @Override
             public void onCancelled(@NonNull @NotNull DatabaseError error) {
-
             }
         });
     }

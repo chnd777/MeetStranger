@@ -4,12 +4,18 @@
       <root url="jar://$USER_HOME$/Documents/wrapper/caches/transforms-2/files-2.1/e3c9aa4b0b36a669073a9f4472942c6c/jetified-geofire-android-common-3.1.0/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/Documents/wrapper/caches/transforms-2/files-2.1/e3c9aa4b0b36a669073a9f4472942c6c/jetified-geofire-android-common-3.1.0/res" />
       <root url="file://$USER_HOME$/Documents/wrapper/caches/transforms-2/files-2.1/e3c9aa4b0b36a669073a9f4472942c6c/jetified-geofire-android-common-3.1.0/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/71a37eefd4d9c6c56d787cf3c4c474d7/jetified-geofire-android-common-3.1.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/abf4af0e71f4e82c76d7d16707f88222/transformed/jetified-geofire-android-common-3.1.0/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/abf4af0e71f4e82c76d7d16707f88222/transformed/jetified-geofire-android-common-3.1.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/abf4af0e71f4e82c76d7d16707f88222/transformed/jetified-geofire-android-common-3.1.0/res" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/Documents/wrapper/caches/modules-2/files-2.1/com.firebase/geofire-android-common/3.1.0/e6167220273775adf5b7265c0785e81b14664aae/geofire-android-common-3.1.0-javadoc.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.firebase/geofire-android-common/3.1.0/e6167220273775adf5b7265c0785e81b14664aae/geofire-android-common-3.1.0-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
       <root url="jar://$USER_HOME$/Documents/wrapper/caches/modules-2/files-2.1/com.firebase/geofire-android-common/3.1.0/1c07d2f6212272e407c965081afc2ead763d439e/geofire-android-common-3.1.0-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.firebase/geofire-android-common/3.1.0/1c07d2f6212272e407c965081afc2ead763d439e/geofire-android-common-3.1.0-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

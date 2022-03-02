@@ -140,9 +140,6 @@ public class RegisterActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_SHORT).show();
             }
         });
-        //
-
-        // Global Chat implementation
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("globalchat").child("Users").child(userId);
         HashMap<String,Object> hashMap = new HashMap<>();
         hashMap.put("id",userId);
@@ -168,7 +165,6 @@ public class RegisterActivity extends AppCompatActivity {
         Intent in = new Intent(RegisterActivity.this,MoreActivity.class);
         startActivity(in);
         finish();
-
     }
 
     private void femaleUserRegistration(){

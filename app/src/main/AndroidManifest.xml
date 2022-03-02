@@ -12,7 +12,6 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
-
     <application
         android:allowBackup="false"
         android:icon="@mipmap/applogo"
@@ -21,9 +20,6 @@
         android:supportsRtl="false"
         tools:ignore="HardcodedDebugMode"
         tools:replace="android:supportsRtl">
-        <activity
-            android:name="com.example.Meetstranger.SettingsActivity"
-            android:label="@string/settings_name" />
         <activity
             android:name="com.example.Meetstranger.SplashActivity"
             android:screenOrientation="portrait"
@@ -74,11 +70,7 @@
             android:name="com.example.Meetstranger.GlobalChat.MessageActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.RandomTalk1" />
-        <activity
-            android:name="com.example.Meetstranger.GlobalChat.FemaleUsers"
-            android:label="Female User List"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.RandomTalk" />
+
         <activity
             android:name="com.example.Meetstranger.grammar.VocabularyActivity"
             android:label="Vocabulary and Grammar"
@@ -96,13 +88,7 @@
             android:label="Vocabulary and Grammar"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.RandomTalk" />
-        <activity
-            android:name="com.example.Meetstranger.advanced.AdvancedFeatures"
-            android:screenOrientation="portrait"
-            android:label="Random Talk and Global Chat"
-            android:theme="@style/Theme.RandomTalk"/>
 
-        <receiver android:name="com.example.Meetstranger.ReminderBroadcast" />
 
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"

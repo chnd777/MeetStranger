@@ -4,31 +4,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/action_instagram"
-        android:orderInCategory="100"
-        android:title="Follow Instagram"
-        android:icon="@drawable/instagram_share"
-        app:showAsAction="always" />
-    <item
-        android:id="@+id/action_rate"
-        android:orderInCategory="100"
-        android:title="Rate Us"
-        app:showAsAction="never" />
-    <item
         android:id="@+id/action_invite"
         android:orderInCategory="100"
-        android:title="Invite Friends"
+        android:title=" invite friends"
         android:icon="@android:drawable/ic_menu_share"
-        app:showAsAction="never" />
-    <item
-        android:id="@+id/action_privacy"
-        android:orderInCategory="100"
-        android:title="Privacy Policy"
         app:showAsAction="never" />
     <item
         android:id="@+id/action_contact"
         android:orderInCategory="100"
-        android:title="Contact Us"
+        android:title="Contact us"
         app:showAsAction="never" />
 
 </menu>

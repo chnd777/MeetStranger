@@ -42,57 +42,13 @@ public class UsersFragment extends Fragment {
 
     EditText search_users;
 
-    // facebook ads
-    private AdView adView;
-    private AdListener adListener;
-    private int adscount = 0;
-    private int maxadscount = 0;
 
-    @Override
-    public void onDestroy() {
-        if (adView != null) {
-            adView.destroy();
-        }
-        super.onDestroy();
-    }
-    //
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.gc_fragment_users,container,false);
-
-        // facebook ads
-        adscount = PersistentUser.getAdsCount(getActivity());
-        maxadscount = getResources().getInteger(R.integer.maxadscount);
-
-        adView = new AdView(getActivity(), getResources().getString(R.string.fb_banner_ad3), AdSize.BANNER_HEIGHT_50);
-        LinearLayout adContainer = (LinearLayout) view.findViewById(R.id.banner_container);
-        adContainer.addView(adView);
-        adListener = new AdListener() {
-            @Override
-            public void onError(Ad ad, AdError adError) {
-            }
-
-            @Override
-            public void onAdLoaded(Ad ad) {
-            }
-
-            @Override
-            public void onAdClicked(Ad ad) {
-                adscount++;
-                PersistentUser.setAdsCount(getActivity(),adscount);
-            }
-
-            @Override
-            public void onLoggingImpression(Ad ad) {
-            }
-        };
-        if(adscount<=maxadscount){
-            adView.loadAd(adView.buildLoadAdConfig().withAdListener(adListener).build());
-        }
-        //
 
         deviceId = PersistentUser.getDeviceId(this.getActivity());
 
